@@ -9,6 +9,7 @@ import L from 'leaflet';
 import './App.css'; // Assurez-vous que le fichier CSS est bien configuré
 import Webcam from './Webcam.jsx';  // Importation du composant Webcam
 
+
 // Icones personnalisées pour les marqueurs
 const RedIcon = new L.Icon({
   iconUrl: pin_red,
@@ -89,6 +90,8 @@ function App() {
     padding: '10px',
     paddingLeft: '70px',
     fontSize: '25px',
+    marginTop: '100px',
+
   }}
   onClick={toggleWebcam} // Déplace l'événement ici pour rendre tout le bouton cliquable
 >

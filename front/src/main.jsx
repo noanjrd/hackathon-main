@@ -3,10 +3,14 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import Header from './layout/Header.jsx'
+import Footer from './layout/Footer';
+// import GeoRisksChecker from './GeoRisksChecker.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Header />
+    {/* <GeoRisksChecker /> */}
     <App />
+    <Footer />
   </StrictMode>,
 )
