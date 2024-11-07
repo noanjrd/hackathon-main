@@ -7,7 +7,7 @@ const Footer = () => {
             <div className="footer-container">
                 {/* Section Navigation */}
                 <div className="footer-section">
-                <a href="#mentions" className="footer-link">Roadmap</a>
+                <a href="/roadmap" className="footer-link">Roadmap</a>
                     <ul className="footer-list">
                       
                     </ul>
