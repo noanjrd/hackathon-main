@@ -1,22 +1,21 @@
 import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
+import pin_fire from './assets/Pin_fire.png';
 import L from 'leaflet';
 import './App.css'; // Assurez-vous que le fichier CSS est bien configuré
 
 // Icones personnalisées pour les marqueurs
 const fireIcon = new L.Icon({
-  iconUrl: 'https://cdn-icons-png.flaticon.com/512/482/482010.png',
-  iconSize: [25, 25],
+  iconUrl: pin_fire,
+  iconSize: [50, 50],
 });
 
 function App() {
   return (
     <>
       <div className="report-button-container" style={{ textAlign: 'center', margin: '20px 0' }}>
-        <button className="report-button" style={{ width: '400px', height: '60px', borderRadius: '500px', padding: '10px', fontSize: '25px' }}>SIGNALER UN RISQUE</button>
+        <button className="report-button" style={{ width: '400px', height: '60px', borderRadius: '500px', padding: '10px', fontSize: '25px'}}>SIGNALER UN RISQUE</button>
       </div>
 
       <div className="map-container" style={{ marginBottom: '20px', height: '400px', width: '100%',  borderRadius: '15px',  overflow: 'hidden' }}>
