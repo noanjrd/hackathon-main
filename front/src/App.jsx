@@ -1,25 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
 import L from 'leaflet';
 import './App.css'; // Assurez-vous que le fichier CSS est bien configuré
+import Webcam from './Webcam';  // Importation du composant Webcam
 
-// Icones personnalisées pour les marqueurs
+// Icônes personnalisées pour les marqueurs
 const fireIcon = new L.Icon({
   iconUrl: 'https://cdn-icons-png.flaticon.com/512/482/482010.png',
   iconSize: [25, 25],
 });
 
 function App() {
+  const [showWebcam, setShowWebcam] = useState(false);  // Etat pour afficher/masquer la webcam
+
+  // Fonction pour basculer l'affichage de la webcam
+  const toggleWebcam = () => {
+    setShowWebcam(!showWebcam);
+  };
+
   return (
     <>
-      <div className="report-button-container" style={{ textAlign: 'center', margin: '20px 0' }}>
-        <button className="report-button" style={{ width: '400px', height: '60px', borderRadius: '500px', padding: '10px', fontSize: '25px' }}>SIGNALER UN RISQUE</button>
+    <div className="report-button-container" style={{ textAlign: 'center', margin: '20px 0' }}>
+        <button
+          className="report-button"
+          style={{ width: '400px', height: '60px', borderRadius: '500px', padding: '10px', fontSize: '25px' }}
+          onClick={toggleWebcam}
+        >
+          SIGNALER UN RISQUE
+        </button>
       </div>
+   
+  
 
-      <div className="map-container" style={{ marginBottom: '20px', height: '400px', width: '100%',  borderRadius: '15px',  overflow: 'hidden' }}>
+      {/* Afficher la webcam si showWebcam est true */}
+      {showWebcam && <Webcam />}
+
+      <div className="map-container" style={{ marginBottom: '20px', height: '400px', width: '100%', borderRadius: '15px', overflow: 'hidden' }}>
         <MapContainer center={[43.7, 7.25]} zoom={13} style={{ height: '100%', width: '100%' }}>
           <TileLayer
             url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
@@ -30,6 +47,7 @@ function App() {
           </Marker>
         </MapContainer>
       </div>
+
       <div className="risk-buttons-container" style={{ textAlign: 'center' }}>
         <button className="risk-button incendie">INCENDIES</button>
         <button className="risk-button crues">CRUES</button>
