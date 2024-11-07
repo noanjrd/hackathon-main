@@ -5,13 +5,19 @@ import pin from './assets/Pin.png';
 import pin_red from './assets/Pin_red.png';
 import camera from './assets/Camera.png';
 import incendie from './assets/incendie.png';
+
 import L from 'leaflet';
 import './App.css'; // Assurez-vous que le fichier CSS est bien configuré
+import Webcam from './Webcam';  // Importation du composant Webcam
 
 // Icones personnalisées pour les marqueurs
 const RedIcon = new L.Icon({
   iconUrl: pin_red,
   iconSize: [50, 50],
+// Icônes personnalisées pour les marqueurs
+const fireIcon = new L.Icon({
+  iconUrl: 'https://cdn-icons-png.flaticon.com/512/482/482010.png',
+  iconSize: [25, 25],
 });
 const BlackIcon = new L.Icon({
   iconUrl: pin,
@@ -64,6 +70,11 @@ function App() {
       ...prevState,
       [riskType]: !prevState[riskType], // Alterner entre afficher/cacher
     }));
+  const [showWebcam, setShowWebcam] = useState(false);  // Etat pour afficher/masquer la webcam
+
+  // Fonction pour basculer l'affichage de la webcam
+  const toggleWebcam = () => {
+    setShowWebcam(!showWebcam);
   };
 
   return (
@@ -86,9 +97,20 @@ function App() {
             alt="Icône Risque"
             style={{ width: '40px', height: '40px', marginRight: '10px', marginLeft: '-20px' }}
           />
+    <div className="report-button-container" style={{ textAlign: 'center', margin: '20px 0' }}>
+        <button
+          className="report-button"
+          style={{ width: '400px', height: '60px', borderRadius: '500px', padding: '10px', fontSize: '25px' }}
+          onClick={toggleWebcam}
+        >
+
           SIGNALER UN RISQUE
         </button>
       </div>
+   
+
+      {/* Afficher la webcam si showWebcam est true */}
+      {showWebcam && <Webcam />}
 
       <div className="map-container" style={{ marginBottom: '20px', height: '400px', width: '100%', borderRadius: '15px', overflow: 'hidden' }}>
         <MapContainer center={[43.7, 7.25]} zoom={13} style={{ height: '100%', width: '100%' }}>
