@@ -7,6 +7,7 @@ import camera from './assets/Camera.png';
 import incendie from './assets/incendie.png';
 import L from 'leaflet';
 import './App.css'; // Assurez-vous que le fichier CSS est bien configuré
+import Webcam from './Webcam.jsx';  // Importation du composant Webcam
 
 // Icones personnalisées pour les marqueurs
 const RedIcon = new L.Icon({
@@ -49,6 +50,7 @@ const tsunamiPositions = [
   { position: [43.697, 7.26], description: "Autre tsunami signalé ici.", icon: RedIcon },
 ];
 
+
 function App() {
   const [showMarkers, setShowMarkers] = useState({
     incendies: false,
@@ -66,30 +68,42 @@ function App() {
     }));
   };
 
+  const [showWebcam, setShowWebcam] = useState(false);  // Etat pour afficher/masquer la webcam
+
+  // Fonction pour basculer l'affichage de la webcam
+  const toggleWebcam = () => {
+    setShowWebcam(!showWebcam);
+  };
+
+
   return (
     <>
       <div className="report-button-container" style={{ textAlign: 'center', margin: '20px 0' }}>
-        <button
-          className="report-button"
-          style={{
-            width: '400px',
-            height: '60px',
-            display: 'flex',
-            borderRadius: '500px',
-            padding: '10px',
-            paddingLeft: '70px',
-            fontSize: '25px',
-          }}
-        >
-          <img
-            src={camera} // Lien vers ton icône/photo
-            alt="Icône Risque"
-            style={{ width: '40px', height: '40px', marginRight: '10px', marginLeft: '-20px' }}
-          />
-          SIGNALER UN RISQUE
-        </button>
-      </div>
+      <button
+  className="report-button"
+  style={{
+    width: '400px',
+    height: '60px',
+    display: 'flex',
+    borderRadius: '500px',
+    padding: '10px',
+    paddingLeft: '70px',
+    fontSize: '25px',
+  }}
+  onClick={toggleWebcam} // Déplace l'événement ici pour rendre tout le bouton cliquable
+>
+  <img
+    src={camera} // Lien vers ton icône/photo
+    alt="Icône Risque"
+    style={{ width: '40px', height: '40px', marginRight: '10px', marginLeft: '-20px' }}
+  />
+  SIGNALER UN RISQUE
+</button>
 
+      </div>
+      {showWebcam && <Webcam />}
+
+    
       <div className="map-container" style={{ marginBottom: '20px', height: '400px', width: '100%', borderRadius: '15px', overflow: 'hidden' }}>
         <MapContainer center={[43.7, 7.25]} zoom={13} style={{ height: '100%', width: '100%' }}>
           <TileLayer
