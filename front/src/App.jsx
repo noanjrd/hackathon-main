@@ -7,7 +7,7 @@ import camera from './assets/Camera.png';
 import incendie from './assets/incendie.png';
 import L from 'leaflet';
 import './App.css'; // Assurez-vous que le fichier CSS est bien configuré
-import Webcam from './Webcam.jsx';  // Importation du composant Webcam
+import Webcam from './Webcam.jsx';  
 
 // Icones personnalisées pour les marqueurs
 const RedIcon = new L.Icon({
