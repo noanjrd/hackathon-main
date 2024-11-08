@@ -82,11 +82,38 @@
 
 .risk-button {
   padding: 10px;
-  border: none;
+  border: none; 
   border-radius: 500px;
   color: white;
   font-weight: bold;
   cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.risk-button div{
+  height: 60px;
+  width: 60px;
+  align-items: center;
+  display: flex;
+}
+
+.risk-button img{
+  object-fit: contain;
+  height: 60px;
+  width: auto;
+  align-items: center;
+}
+
+.risk-button text{
+  flex-grow: 1;
+}
+
+.risk-button .seisme-icon{
+  height: 45px;
+  width: auto;
+  margin-left: 20px;
 }
 
 .incendie {

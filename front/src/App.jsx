@@ -11,6 +11,12 @@ import incendie from './assets/incendie.png';
 import './App.css';
 import Webcam from './Webcam.jsx';
 
+import crues from './assets/crues.png';
+import ventsforts from './assets/ventsforts.png';
+import seisme from './assets/seisme.png';
+import neige from './assets/neige.png';
+import tsunami from './assets/tsunami.png';
+
 // Custom marker icons
 const RedIcon = new L.Icon({
   iconUrl: pin_red,
@@ -154,24 +160,33 @@ function App() {
         </MapContainer>
       </div>
 
+
+
+
       <div className="risk-buttons-container" style={{ textAlign: 'center' }}>
-        <button className="risk-button incendie" onClick={() => toggleMarkers('incendies')}>
-          INCENDIES
+        <button className="risk-button incendie" src={incendie} alt="Incendie" onClick={() => toggleMarkers('incendies')}>
+        <div><img src={incendie} alt="Incendie" /></div>
+        <text>INCENDIES</text>
         </button>
         <button className="risk-button crues" onClick={() => toggleMarkers('crues')}>
-          CRUES
+         <div><img src={crues} alt="Crues" /></div> 
+        <text>CRUES</text>
         </button>
         <button className="risk-button vents-forts" onClick={() => toggleMarkers('ventsForts')}>
-          VENTS FORTS
+        <div><img src={ventsforts} alt="Vents" /></div>
+        <text>VENTS FORTS</text>
         </button>
         <button className="risk-button seisme" onClick={() => toggleMarkers('seisme')}>
-          SEISME
+        <div><img src={seisme} className="seisme-icon" alt="Séisme" /></div>
+        <text>SEISMES</text>
         </button>
         <button className="risk-button neige" onClick={() => toggleMarkers('neige')}>
-          NEIGE
+        <div><img src={neige} alt="Neige" /></div>
+        <text>NEIGE</text>
         </button>
         <button className="risk-button tsunami" onClick={() => toggleMarkers('tsunami')}>
-          TSUNAMI
+        <div><img src={tsunami} alt="Tsunami" /></div>
+        <text>TSUNAMI</text>
         </button>
       </div>
     </>
