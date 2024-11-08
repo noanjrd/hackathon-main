@@ -33,7 +33,7 @@ const RoadmapItem = ({ title, description, status, date, index }) => {
           {date}
         </div>
 
-        <h3 className="text-lg font-bold mb-2 font-serif">{title}</h3>
+        <h3 className="text-lg font-bold mb-2 font-serif text-black">{title}</h3>
         <p className="text-stone-700 text-sm">{description}</p>
 
         <div className="mt-2 flex items-center gap-2">
@@ -125,24 +125,25 @@ const Roadmap = () => {
           />
         ))}
 
-        <div className="mt-8 p-4 bg-amber-50 rounded-lg border-2 border-dashed border-amber-600
-                       transform rotate-1">
-          <h2 className="text-lg font-serif font-bold text-center mb-3">Légende</h2>
-          <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <span className="h-3 w-3 rounded-full bg-green-500" />
-              <span className="text-sm">Découvert</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="h-3 w-3 rounded-full bg-amber-500" />
-              <span className="text-sm">En exploration</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="h-3 w-3 rounded-full bg-stone-400" />
-              <span className="text-sm">À découvrir</span>
-            </div>
-          </div>
-        </div>
+<div className="mt-8 p-4 bg-amber-50 rounded-lg border-2 border-dashed border-amber-600
+                transform rotate-1">
+  <h2 className="text-lg font-serif font-bold text-center mb-3 text-black">Légende</h2>
+  <div className="space-y-2">
+    <div className="flex items-center gap-2">
+      <span className="h-3 w-3 rounded-full bg-green-500" />
+      <span className="text-sm text-black">Découvert</span>
+    </div>
+    <div className="flex items-center gap-2">
+      <span className="h-3 w-3 rounded-full bg-amber-500" />
+      <span className="text-sm text-black">En exploration</span>
+    </div>
+    <div className="flex items-center gap-2">
+      <span className="h-3 w-3 rounded-full bg-stone-400" />
+      <span className="text-sm text-black">À découvrir</span>
+    </div>
+  </div>
+</div>
+
       </div>
     </div>
   );

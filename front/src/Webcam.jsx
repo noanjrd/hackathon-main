@@ -13,6 +13,12 @@ const WebcamCapture = () => {
     }
   };
 
+  // Fonction pour supprimer une photo
+  const deletePhoto = (index) => {
+    const newImages = images.filter((_, i) => i !== index); // Filtrer l'image à supprimer
+    setImages(newImages); // Mettre à jour le tableau d'images
+  };
+
   return (
     <div style={{ textAlign: 'center' }}>
       <Webcam
@@ -25,6 +31,9 @@ const WebcamCapture = () => {
           height: 720,
           facingMode: "user",
         }}
+        style={{
+          borderRadius: '10px',
+        }}
       />
       <button onClick={capturePhoto} style={{ marginTop: '10px' }}>
         Prendre une photo
@@ -35,7 +44,10 @@ const WebcamCapture = () => {
         {images.length > 0 && <h3>Photos capturées :</h3>}
         {images.map((image, index) => (
           <div key={index} style={{ marginBottom: '10px' }}>
-            <img src={image} alt={`Captured ${index + 1}`} style={{ maxWidth: '100%' }} />
+            <img src={image} alt={`Captured ${index + 1}`} style={{ maxWidth: '100%', borderRadius: '10px' }} />
+            <button onClick={() => deletePhoto(index)} style={{ marginLeft: '10px', color: 'red' }}>
+              Supprimer
+            </button>
           </div>
         ))}
       </div>
